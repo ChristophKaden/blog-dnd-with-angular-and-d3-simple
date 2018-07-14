@@ -1,5 +1,5 @@
 {
-  "name": "blog-drag-and-drop2",
+  "name": "blog-dnd-with-angular-and-d3-simple",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
