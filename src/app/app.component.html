@@ -1,0 +1,47 @@
+<!-- drag container, needed to calculate ghost postions permanently while mouse moves -->
+<div class="drag-container"
+  (dragover)="moveDragElement($event)"
+>
+  <!-- drag dummy, needed to hide default ghost in firefox and chrome -->
+  <div class="drag-dummy"></div>
+  <!-- drop zone, the items could be dropped here -->
+  <div class="drop-zone"
+    (dragover)="dragOver($event)"
+    (drop)="drop($event)"
+  >
+    <!-- each dropped item -->
+    <div *ngFor="let item of dropped"
+      class="dropped-item"
+      [style.background-color]="item.color"
+      [style.visibility]="item.visible!==false ? 'visible' : 'hidden'"
+    >
+      {{ item.text }}
+    </div>
+  </div>
+  <!-- each draggable item -->
+  <div *ngFor="let item of draggable" 
+    class="draggable-item"
+    [style.left]="item.left+'px'"
+    [style.top]="item.top+'px'"
+    [style.background-color]="item.color"
+    [style.visibility]="item.visible!==false ? 'visible' : 'hidden'"
+    draggable="true"
+    (dragstart)="dragStart($event, item)"
+    (dragend)="dragEnd($event, item)"
+  >
+    {{ item.text }}
+  </div>
+  <!-- currently dragging item -->
+  <div *ngIf="dragging"
+    class="dragging-item"
+    [style.background-color]="dragging.color"
+    [style.left]="dragItemStyle.left+'px'"
+    [style.top]="dragItemStyle.top+'px'"
+    [style.width]="dragItemStyle.width+'px'"
+    [style.height]="dragItemStyle.height+'px'"
+    [style.line-height]="dragItemStyle.lineHeight+'px'"
+    [style.border-radius]="dragItemStyle.borderRadius+'%'"
+  >
+    {{ dragging.text }}
+  </div>
+</div>

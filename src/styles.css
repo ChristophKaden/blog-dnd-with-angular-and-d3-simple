@@ -1,0 +1,8 @@
+/* styles.css */
+
+/* use full width and height to simplify the calculation of the positions */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}

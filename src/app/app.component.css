@@ -1,0 +1,42 @@
+/* app.component.css */
+
+/* use full width and height to simplify the calculation of the positions */
+.drag-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* a for the browser visible and the user invisible element */
+.drag-dummy {
+  position: absolute;
+  width: 1px; height: 1px; 
+}
+
+/* it should be clear to you */
+.drop-zone {
+  height: 60px;
+  background-color: #dadada;
+}
+
+/* style for all draggable items and the currently dragged item */
+.draggable-item, .dragging-item {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80px;
+}
+
+/* avoid browser cancels the drag operation because our ghost will be displayed directly at the cursor position */
+.dragging-item {
+  pointer-events: none;
+}
+
+/* style for all dropped items */
+.dropped-item {
+  text-align: center;
+  line-height: 20px;
+}
